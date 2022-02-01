@@ -1,6 +1,7 @@
 const shoot = document.getElementById('shootButton');
 const playerMenu = document.getElementById('choice');
 const goAgain = document.getElementById('goAgainButton');
+const newGame = document.getElementById('endOfGame');
 
 goAgain.disabled = true;
 
@@ -17,8 +18,9 @@ var showResults = document.getElementById('whatHappened');
 var scoreKeeper = document.getElementById('keepScore');
 scoreKeeper.textContent = 'Player: ' + playerScore + '. Computer: ' + computerScore + '. First one to five wins.'
 
+shoot.addEventListener('click' , reEnable);
 shoot.addEventListener('click' , playerShot);
-shoot.addEventListener('mouseup' , reEnable);
+
 
 function playerShot (e) {
     e.preventDefault();
@@ -54,8 +56,21 @@ function playerShot (e) {
             if (playerChoice.toLowerCase() == computerChoice) {
                 scoreKeeper.textContent = 'Draw. Player: ' + playerScore + '. Computer: ' + computerScore + '. First one to five wins.'
             } 
-            else if (condition) {
-                
+            else if (playerChoice == 'Scissors' && computerChoice == 'paper') {
+                playerScore++;
+                scoreKeeper.textContent = 'You Won This Round. Player: ' + playerScore + '. Computer: ' + computerScore + '. First one to five wins.'
+            }
+            else if (playerChoice == 'Paper' && computerChoice == 'rock') {
+                playerScore++;
+                scoreKeeper.textContent = 'You Won This Round. Player: ' + playerScore + '. Computer: ' + computerScore + '. First one to five wins.'
+            }
+            else if (playerChoice == 'Rock' && computerChoice == 'scissors') {
+                playerScore++;
+                scoreKeeper.textContent = 'You Won This Round. Player: ' + playerScore + '. Computer: ' + computerScore + '. First one to five wins.'
+            }
+            else {
+                computerScore++;
+                scoreKeeper.textContent = 'You Lost This Round. Player: ' + playerScore + '. Computer: ' + computerScore + '. First one to five wins.'
             }
 
         }
@@ -63,7 +78,8 @@ function playerShot (e) {
     }
 function reEnable (e) {
     e.preventDefault();
-    if (playerScore < 5 && computerScore < 5) {
+    setTimeout ( () => {
+    if (playerScore <= 4 && computerScore <= 4) {
         goAgain.hidden = false;
         goAgain.disabled = false;
         goAgain.addEventListener('click' , (e) => {
@@ -72,8 +88,18 @@ function reEnable (e) {
             playerVisual.src = '../January/images/ready.jpg';
             computerVisual.src = '';
             showResults.textContent = '';
+            scoreKeeper.textContent = 'Player: ' + playerScore + '. Computer: ' + computerScore + '. First one to five wins.'
             goAgain.hidden = true;
     })
     
     }
+    else if (playerScore >= 5) {
+        scoreKeeper.textContent = 'You Won The Match. Final Score is ' + playerScore + ' to ' + computerScore + '.'
+        newGame.hidden = false;
+    }
+    else {
+        scoreKeeper.textContent = 'You Lost The Match. Final Score is ' + playerScore + ' to ' + computerScore + '.'
+        newGame.hidden = false;
+    }
+}, 200);
     }
