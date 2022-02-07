@@ -1,17 +1,92 @@
 #playerVisual {
     float: left;
-    margin-left: 20px;
-    max-width: 300px;
-    max-height: 300px;
+    margin-left: 50px;
+    margin-right: 50px;
+    max-width: 260px;
+    max-height: 260px;
+    min-height: 260px;
+    border-width: 1px solid;
+    border-color: black;
+}
+#keepScore {
+    display: block;
+    font: 24pt Arial;
+}
+
+#playerChoose {
+    margin-left: 60px;
+    font-size: 20pt;
+    white-space: pre-line;
+    text-align: center;
+}
+
+#computerVisual {
+    float: center;
+    margin-right: 300px;
+    margin-left: 50px;
+    max-width: 260px;
+    max-height: 260px;
+    min-height: 260px;
     border-width: 1px solid;
     border-color: black;
 }
 
-#computerVisual {
-    float: right;
-    margin-right: 1000px;
-    max-width: 300px;
-    max-height: 300px;
-    border-width: 1px solid;
-    border-color: black;
+.pictureBox {
+
+}
+
+#choice {
+    padding: 8px 5px;
+    margin-right: 10px;
+    margin-left: 60px;
+    margin-bottom: 50px;
+    color: #434d5f;
+    background-color: #eeeeee;
+    font: 20pt Arial;
+    border: 2px solid #dddddd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#keepScore {
+    margin-left: 50px;
+    margin-right: 200px;
+}
+
+.wholeScreen {
+    background-color:rgb(234, 212, 235);
+}
+
+#shootButton {
+    width: 100px;
+    height: 50px;
+    font: 24pt Arial;
+    margin-left: 10px;
+    margin-bottom: 60px;
+}
+
+#goAgainButton {
+    width: 200px;
+    height: 50px;
+    font: 24pt Arial;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 150px;
+}
+
+#redoButton {
+    width: 200px;
+    height: 80px;
+    font: 24pt Arial;
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+#whatHappened {
+    margin-left: 60px;
+}
+
+p {
+    max-width: 220px;
+    font: larger Arial;
 }

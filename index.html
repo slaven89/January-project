@@ -5,10 +5,11 @@
     <link rel="stylesheet" href="styles.css">
     <title>Rock Paper Scissors Game</title>
 </head>
-
-<!--Player chooses rock, paper,scissors-->
+<body class="wholeScreen">
 <div>
-    <p id="playerChoose">Choose Rock, Paper or Scissors</p>
+    <p id="playerChoose">Rock beats Scissors. 
+        Paper beats Rock. 
+        Scissors beats Paper.</p>
     <select id="choice" required>
         <option>Rock</option>
         <option>Paper</option>
@@ -18,13 +19,9 @@
 </div>
 
 <div class="pictureBox">
-    <img src="" id="playerVisual">
-</div>
+    <img src=""  id="playerVisual">
+    <img src=""  id="computerVisual">
 
-
-<div class="pictureBox">
-    <img src="" id="computerVisual">
-</div>
 <!--Results are shown-->
 <h1 id="whatHappened"></h1>
 
@@ -32,9 +29,11 @@
 <!--Score is kept here-->
 <div id="keepScore"></div>
 <button hidden id="goAgainButton">Go Again.</button>
+</div>
 
 <div hidden id="endOfGame">
-    <button onclick="window.location.reload()">Start New Game.</button>
+    <button onclick="window.location.reload()" id="redoButton">Start New Game.</button>
 </div>
+</body>
 <script src="main.js"></script>
 </html>

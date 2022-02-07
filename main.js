@@ -1,3 +1,5 @@
+//Declaring variables
+
 const shoot = document.getElementById('shootButton');
 const playerMenu = document.getElementById('choice');
 const goAgain = document.getElementById('goAgainButton');
@@ -16,12 +18,14 @@ var computerVisual = document.getElementById('computerVisual');
 var showResults = document.getElementById('whatHappened');
 
 var scoreKeeper = document.getElementById('keepScore');
+
 scoreKeeper.textContent = 'Player: ' + playerScore + '. Computer: ' + computerScore + '. First one to five wins.'
 
+//Shoot button event triggers
 shoot.addEventListener('click' , reEnable);
 shoot.addEventListener('click' , playerShot);
 
-
+//Runs computer choice, changes images
 function playerShot (e) {
     e.preventDefault();
     shoot.disabled = true;
@@ -31,8 +35,7 @@ function playerShot (e) {
     var rngTwo = rng - 1;
     var computerChoice = options[rngTwo];
     var results = [playerChoice, computerChoice];
-    //playerScore++;
-    //scoreKeeper.textContent = 'Player: ' + playerScore + '. Computer: ' + computerScore + '. First one to five wins.'
+
     showResults.textContent = 'You chose ' + results[0].toLowerCase() +'. They chose ' + results[1] + '.'
         if (results[0] == 'Paper') {
             playerVisual.src = '../January/images/playerpaper.jpg';
@@ -52,6 +55,7 @@ function playerShot (e) {
         else {
             computerVisual.src = '../January/images/computerscissors.jpg';
         }
+        //Nested function, determines round winner
        function roundWinner(results) {
             if (playerChoice.toLowerCase() == computerChoice) {
                 scoreKeeper.textContent = 'Draw. Player: ' + playerScore + '. Computer: ' + computerScore + '. First one to five wins.'
@@ -76,6 +80,8 @@ function playerShot (e) {
         }
         roundWinner();
     }
+
+//Changes interface, Go Again button or Final Score display. Timeout lets it run with other event trigger cleanly.
 function reEnable (e) {
     e.preventDefault();
     setTimeout ( () => {
